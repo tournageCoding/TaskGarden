@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
+import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -82,7 +83,7 @@ class MainActivity : AppCompatActivity(), RecyclerViewAdapter.OnItemClickListene
 
     /**
      * onItemClick is called by the clickListener when the user interacts with the delete button
-     * of a card in the RecyckerView.
+     * of a card in the RecyclerView.
      *
      * @param id the ID of the task to delete.
      * */
@@ -167,6 +168,9 @@ class MainActivity : AppCompatActivity(), RecyclerViewAdapter.OnItemClickListene
              updateTask(task, this)
              updateRecyclerView()
 
+             // call method to update currency value
+             incCurrencyValue()
+
          } catch (e: Exception) {
              Log.d(debugTag, "Got $e while trying to complete task in Main Activity!")
          }
@@ -195,5 +199,14 @@ class MainActivity : AppCompatActivity(), RecyclerViewAdapter.OnItemClickListene
             updateRecyclerView()
         }
 
+    }
+
+    /**
+     * incCurrencyValue update the currency label when a task has been completed.
+     */
+    private fun incCurrencyValue() {
+        val currencyLabel = findViewById<TextView>(R.id.labelCurrency)
+        val str: String = currencyLabel.text.toString() + "testing"
+        currencyLabel.text = str
     }
 }
