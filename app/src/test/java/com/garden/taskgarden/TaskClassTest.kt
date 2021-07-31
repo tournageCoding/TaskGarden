@@ -9,6 +9,7 @@ class TaskClassTest : TestCase() {
     private var title = "Title"
     private var desc = "Description"
     private var timeToCompleteBy = "TimeToCompleteBy"
+    private val test = "test"
 
     private val testTask = Task(id, title, desc, timeToCompleteBy)
 
