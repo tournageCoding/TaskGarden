@@ -35,7 +35,7 @@ class Task {
      *
      * @return the completed state of the object.
      */
-    var completed = false
+    var completed = 0
         private set
 
     /**
@@ -58,7 +58,7 @@ class Task {
         this.title = title
         this.description = description
         this.timeToCompletedBy = timeToCompleteBy
-        completed = false
+        completed = 0
     }
 
     /**
@@ -99,7 +99,7 @@ class Task {
      *
      * @param state the new completed state to give the object.
      */
-    fun setCompleted(state: Boolean) {
+    fun setCompleted(state: Int) {
         completed = state
     }
 
