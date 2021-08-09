@@ -48,7 +48,7 @@
             android:layout_alignBaseline="@+id/completedText"
             android:layout_marginStart="100dp"
             android:textColor="@android:color/holo_blue_dark"
-            android:text="Task Status: Completed!" />
+            android:text="Task Status: *****!" />
 
 
 
