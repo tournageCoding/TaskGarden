@@ -2,6 +2,7 @@ package com.garden.taskgarden
 
 //refactor to deal with all imports of DBInterface!
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -17,6 +18,12 @@ import com.garden.taskgarden.RecyclerView.RecyclerViewAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.edit_popout.view.*
 import kotlinx.android.synthetic.main.task_card_view.*
+import java.text.SimpleDateFormat
+import java.time.LocalDate
+import java.time.LocalDateTime
+import java.time.LocalTime
+import java.util.*
+import kotlin.collections.ArrayList
 
 /**
  * Class for initialising and loading un completed tasks in the RecyclerView. Class also has
@@ -36,7 +43,7 @@ class MainActivity : AppCompatActivity(), RecyclerViewAdapter.OnItemClickListene
         settingsTalker = SettingsTalker(this)
         initRecyclerView()
         loadData()
-
+        checkDT()
     }
     /**
      * Loads list of task objects and sends it to the task adapter.
@@ -163,7 +170,7 @@ class MainActivity : AppCompatActivity(), RecyclerViewAdapter.OnItemClickListene
          var task = Task()
          try {
              task = findTask(id, this) //Could we not just update the completed flag in the database? this just seems wasteful...
-             task.setCompleted(true)
+             task.setCompleted(1)
              updateTask(task, this)
              updateRecyclerView()
 
@@ -195,5 +202,30 @@ class MainActivity : AppCompatActivity(), RecyclerViewAdapter.OnItemClickListene
             updateRecyclerView()
         }
 
+    }
+
+    private fun checkDT(){
+        println("///////////////////////////////////////////////////////////////////////////")
+
+        val uncompletedTasks = loadTasks()
+        val dateNow = Calendar.getInstance().time
+
+        for(task in uncompletedTasks){
+
+            try {
+                val completedBy = task.timeToCompletedBy
+                val completedByDate = SimpleDateFormat("dd/MM/yyyy HH:mm").parse(completedBy)
+                println(dateNow)
+                println(completedByDate)
+                if (dateNow > completedByDate) {
+                    task.setCompleted(2)
+                    updateTask(task, this)
+                    updateRecyclerView()
+                }
+                println(task.completed)
+            } catch(e: Exception){
+                Log.d(debugTag, "No date and time selected!")
+            }
+        }
     }
 }
