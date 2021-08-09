@@ -50,7 +50,10 @@ class TaskFormActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener
      * in this class.
      */
     private fun getDateTimeCalendar() {
+        // gets instance of the date and time now
         val cal : Calendar = Calendar.getInstance()
+
+        // saves the date and time in variables
         day = cal.get(Calendar.DAY_OF_MONTH)
         month = cal.get(Calendar.MONTH)
         year = cal.get(Calendar.YEAR)
@@ -82,7 +85,8 @@ class TaskFormActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener
             if(savedDay == 0 && savedMonth == 0 && savedYear == 0 && savedHour == 0 && savedMinute == 0){
                 task.setCompletedBy("No date and time selected")
             } else {
-                task.setCompletedBy("$savedDay/$savedMonth/$savedYear $savedHour:$savedMinute")
+                val buggedMonth = savedMonth+1
+                task.setCompletedBy("$savedDay/$buggedMonth/$savedYear $savedHour:$savedMinute")
             }
             DBInterface.addTask(task, this)
             val intent = Intent(this@TaskFormActivity, MainActivity::class.java)
