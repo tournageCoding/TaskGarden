@@ -65,7 +65,7 @@ class DBHandler(context: Context?, name: String?, factory: CursorFactory?, versi
         val db = this.writableDatabase
         val cursor = db.rawQuery(query, null)
         while (cursor.moveToNext()) {
-            if (cursor.getInt(3) == 1) {
+            if (cursor.getInt(3) == 1 || cursor.getInt(3) == 2) {
                 taskArray.add(Task(cursor.getInt(0), cursor.getString(1), cursor.getString(2), cursor.getString(4)))
             }
         }
@@ -112,9 +112,10 @@ class DBHandler(context: Context?, name: String?, factory: CursorFactory?, versi
             task.setTitle(cursor.getString(1))
             task.setDescription(cursor.getString(2))
             when (cursor.getInt(3)) {
-                1 -> task.setCompleted(true)
-                0 -> task.setCompleted(false)
-                else -> task.setCompleted(false)
+                1 -> task.setCompleted(1)
+                0 -> task.setCompleted(0)
+                2 -> task.setCompleted(2)
+                else -> task.setCompleted(0)
             }
             task.setCompletedBy(cursor.getString(4))
         }
