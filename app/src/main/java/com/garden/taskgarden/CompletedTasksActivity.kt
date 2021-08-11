@@ -44,7 +44,7 @@ class CompletedTasksActivity : AppCompatActivity() {
      * loadCompletedTasks talks to the database to get all tasks that are marked as completed.
      * @return ArrayList of completed Task objects.
      * */
-    fun loadCompletedTasks() : ArrayList<Task>{
+    private fun loadCompletedTasks() : ArrayList<Task>{
         try {
             val dbHandler = DBHandler(this, null, null, 1)
             return dbHandler.loadCompletedHandlers()

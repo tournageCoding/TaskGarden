@@ -42,8 +42,8 @@ class MainActivity : AppCompatActivity(), RecyclerViewAdapter.OnItemClickListene
         //dbInterface = new DBInterface();
         settingsTalker = SettingsTalker(this)
         initRecyclerView()
-        loadData()
         checkDT()
+        loadData()
     }
     /**
      * Loads list of task objects and sends it to the task adapter.
@@ -115,6 +115,21 @@ class MainActivity : AppCompatActivity(), RecyclerViewAdapter.OnItemClickListene
         try {
             val dbHandler = DBHandler(this, null, null, 1)
             return dbHandler.loadUncompletedHandler()
+        } catch (e: Exception) {
+            Log.d(debugTag, "Got $e when trying to load tasks in Main Activity.$e")
+        }
+        return ArrayList()
+    }
+
+    /**
+     * loadTasks gets all the uncompleted tasks from the database and adds them into an ArrayList.
+     *
+     * @return ArrayList of all uncompleted task objects.
+     * */
+    private fun loadCompletedTasks() :ArrayList<Task>{
+        try {
+            val dbHandler = DBHandler(this, null, null, 1)
+            return dbHandler.loadCompletedHandlers()
         } catch (e: Exception) {
             Log.d(debugTag, "Got $e when trying to load tasks in Main Activity.$e")
         }
@@ -211,21 +226,20 @@ class MainActivity : AppCompatActivity(), RecyclerViewAdapter.OnItemClickListene
         val dateNow = Calendar.getInstance().time
 
         for(task in uncompletedTasks){
-
             try {
                 val completedBy = task.timeToCompletedBy
                 val completedByDate = SimpleDateFormat("dd/MM/yyyy HH:mm").parse(completedBy)
-                println(dateNow)
-                println(completedByDate)
                 if (dateNow > completedByDate) {
                     task.setCompleted(2)
                     updateTask(task, this)
                     updateRecyclerView()
                 }
-                println(task.completed)
             } catch(e: Exception){
                 Log.d(debugTag, "No date and time selected!")
             }
         }
+
     }
+
+
 }

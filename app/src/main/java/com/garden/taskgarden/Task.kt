@@ -53,12 +53,12 @@ class Task {
      * @param description description of the task.
      * @param completeBy date to complete the task by.
      */
-    constructor(id:Int,title: String?, description: String?, timeToCompleteBy: String?) {
+    constructor(id:Int,title: String?, description: String?, completed: Int, timeToCompleteBy: String?) {
         this.iD = id
         this.title = title
         this.description = description
+        this.completed = completed
         this.timeToCompletedBy = timeToCompleteBy
-        completed = 0
     }
 
     /**

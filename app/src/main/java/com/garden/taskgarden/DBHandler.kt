@@ -46,7 +46,13 @@ class DBHandler(context: Context?, name: String?, factory: CursorFactory?, versi
         val cursor = db.rawQuery(query, null)
         while (cursor.moveToNext()) {
             if (cursor.getInt(3) == 0) {
-                taskArray.add(Task(cursor.getInt(0), cursor.getString(1), cursor.getString(2), cursor.getString(4)))
+                taskArray.add(Task(
+                        cursor.getInt(0),
+                        cursor.getString(1),
+                        cursor.getString(2),
+                        cursor.getInt(3),
+                        cursor.getString(4))
+                )
             }
         }
         cursor.close()
@@ -61,12 +67,18 @@ class DBHandler(context: Context?, name: String?, factory: CursorFactory?, versi
      * */
     fun loadCompletedHandlers(): ArrayList<Task> {
         val taskArray = ArrayList<Task>()
-        val query = "SELECT * FROM $TABLE_NAME WHERE $COLUMN_COMPLETED=1;"
+        val query = "SELECT * FROM $TABLE_NAME"
         val db = this.writableDatabase
         val cursor = db.rawQuery(query, null)
         while (cursor.moveToNext()) {
             if (cursor.getInt(3) == 1 || cursor.getInt(3) == 2) {
-                taskArray.add(Task(cursor.getInt(0), cursor.getString(1), cursor.getString(2), cursor.getString(4)))
+                taskArray.add(Task(
+                        cursor.getInt(0),
+                        cursor.getString(1),
+                        cursor.getString(2),
+                        cursor.getInt(3),
+                        cursor.getString(4))
+                )
             }
         }
         cursor.close()

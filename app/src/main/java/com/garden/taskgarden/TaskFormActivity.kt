@@ -1,17 +1,19 @@
 package com.garden.taskgarden
 
+import android.app.AlertDialog
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.DatePicker
 import android.widget.EditText
 import android.widget.TimePicker
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.add_task_form.*
 import kotlinx.android.synthetic.main.task_card_view.*
+import java.text.SimpleDateFormat
 import java.util.*
 
 /**
@@ -85,8 +87,21 @@ class TaskFormActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener
             if(savedDay == 0 && savedMonth == 0 && savedYear == 0 && savedHour == 0 && savedMinute == 0){
                 task.setCompletedBy("No date and time selected")
             } else {
+                val dateNow = Calendar.getInstance().time
                 val buggedMonth = savedMonth+1
-                task.setCompletedBy("$savedDay/$buggedMonth/$savedYear $savedHour:$savedMinute")
+                val dateTime = "$savedDay/$buggedMonth/$savedYear $savedHour:$savedMinute"
+                val completedByDate = SimpleDateFormat("dd/MM/yyyy HH:mm").parse(dateTime)
+                println(dateNow)
+                println(completedByDate)
+                if(dateNow < completedByDate) {
+                    task.setCompletedBy(dateTime)
+                } else {
+                    val alertDialog: AlertDialog = AlertDialog.Builder(this).create()
+                    alertDialog.setTitle("Error")
+                    alertDialog.setMessage("Date/Time cannot be set in the past!")
+                    alertDialog.show()
+                    return
+                }
             }
             DBInterface.addTask(task, this)
             val intent = Intent(this@TaskFormActivity, MainActivity::class.java)
@@ -105,7 +120,7 @@ class TaskFormActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener
         savedYear = year
         getDateTimeCalendar()
 
-        TimePickerDialog(this, this, hour, minute, true).show()
+        TimePickerDialog(this, this, hour, minute, false).show()
     }
 
     /**

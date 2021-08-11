@@ -50,11 +50,13 @@ class CompletedTasksAdaptor(private val completedList: List<Task>) :
     class CompletedTasksViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val title = itemView.completedText
         val description = itemView.completedDescription
+        val taskStatus = itemView.completedStatus
         var id = 0;
 
         fun bind(task: Task){
             title.text = task.title
             description.text = task.description
+            taskStatus.text = task.completed.toString()
             id = task.iD;
             Log.d("RecyclerViewAdapter","BIND TASK! $id")
 
