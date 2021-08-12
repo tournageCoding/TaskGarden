@@ -32,6 +32,12 @@
             android:onClick="openForm"
             android:text="add new task" />
 
+        <TextView
+            android:id="@+id/labelCurrency"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Currency: 453"/>
+
         <Button
             android:id="@+id/btnShowCompletedTasks"
             android:layout_width="231dp"
