@@ -6,6 +6,7 @@ $dokka.location:com.garden.taskgarden.RecyclerView/CompletedTasksAdaptor.Complet
 $dokka.location:com.garden.taskgarden.RecyclerView/CompletedTasksAdaptor.CompletedTasksViewHolder/bind/#com.garden.taskgarden.Task/PointingToDeclaration/app/com.garden.taskgarden.RecyclerView/-completed-tasks-adaptor/-completed-tasks-view-holder/bind.html
 $dokka.location:com.garden.taskgarden.RecyclerView/CompletedTasksAdaptor.CompletedTasksViewHolder/description/#/PointingToDeclaration/app/com.garden.taskgarden.RecyclerView/-completed-tasks-adaptor/-completed-tasks-view-holder/description.html
 $dokka.location:com.garden.taskgarden.RecyclerView/CompletedTasksAdaptor.CompletedTasksViewHolder/id/#/PointingToDeclaration/app/com.garden.taskgarden.RecyclerView/-completed-tasks-adaptor/-completed-tasks-view-holder/id.html
+$dokka.location:com.garden.taskgarden.RecyclerView/CompletedTasksAdaptor.CompletedTasksViewHolder/taskStatus/#/PointingToDeclaration/app/com.garden.taskgarden.RecyclerView/-completed-tasks-adaptor/-completed-tasks-view-holder/task-status.html
 $dokka.location:com.garden.taskgarden.RecyclerView/CompletedTasksAdaptor.CompletedTasksViewHolder/title/#/PointingToDeclaration/app/com.garden.taskgarden.RecyclerView/-completed-tasks-adaptor/-completed-tasks-view-holder/title.html
 $dokka.location:com.garden.taskgarden.RecyclerView/CompletedTasksAdaptor///PointingToDeclaration/app/com.garden.taskgarden.RecyclerView/-completed-tasks-adaptor/index.html
 $dokka.location:com.garden.taskgarden.RecyclerView/CompletedTasksAdaptor/CompletedTasksAdaptor/#kotlin.collections.List[com.garden.taskgarden.Task]/PointingToDeclaration/app/com.garden.taskgarden.RecyclerView/-completed-tasks-adaptor/-completed-tasks-adaptor.html
@@ -60,7 +61,6 @@ $dokka.location:com.garden.taskgarden.ui.slideshow/SlideshowViewModel/text/#/Poi
 $dokka.location:com.garden.taskgarden////PointingToDeclaration/app/com.garden.taskgarden/index.html
 $dokka.location:com.garden.taskgarden/CompletedTasksActivity///PointingToDeclaration/app/com.garden.taskgarden/-completed-tasks-activity/index.html
 $dokka.location:com.garden.taskgarden/CompletedTasksActivity/CompletedTasksActivity/#/PointingToDeclaration/app/com.garden.taskgarden/-completed-tasks-activity/-completed-tasks-activity.html
-$dokka.location:com.garden.taskgarden/CompletedTasksActivity/loadCompletedTasks/#/PointingToDeclaration/app/com.garden.taskgarden/-completed-tasks-activity/load-completed-tasks.html
 $dokka.location:com.garden.taskgarden/CompletedTasksActivity/openMain/#android.view.View?/PointingToDeclaration/app/com.garden.taskgarden/-completed-tasks-activity/open-main.html
 $dokka.location:com.garden.taskgarden/DBHandler.Companion///PointingToDeclaration/app/com.garden.taskgarden/-d-b-handler/-companion/index.html
 $dokka.location:com.garden.taskgarden/DBHandler.Companion/COLUMN_COMPLETED/#/PointingToDeclaration/app/com.garden.taskgarden/-d-b-handler/-companion/-c-o-l-u-m-n_-c-o-m-p-l-e-t-e-d.html
@@ -124,11 +124,11 @@ $dokka.location:com.garden.taskgarden/ShopItem/updatePrice/#kotlin.Int/PointingT
 $dokka.location:com.garden.taskgarden/ShopItem/updateResourceName/#kotlin.String/PointingToDeclaration/app/com.garden.taskgarden/-shop-item/update-resource-name.html
 $dokka.location:com.garden.taskgarden/Task///PointingToDeclaration/app/com.garden.taskgarden/-task/index.html
 $dokka.location:com.garden.taskgarden/Task/Task/#/PointingToDeclaration/app/com.garden.taskgarden/-task/-task.html
-$dokka.location:com.garden.taskgarden/Task/Task/#kotlin.Int#kotlin.String?#kotlin.String?#kotlin.String?/PointingToDeclaration/app/com.garden.taskgarden/-task/-task.html
+$dokka.location:com.garden.taskgarden/Task/Task/#kotlin.Int#kotlin.String?#kotlin.String?#kotlin.Int#kotlin.String?/PointingToDeclaration/app/com.garden.taskgarden/-task/-task.html
 $dokka.location:com.garden.taskgarden/Task/completed/#/PointingToDeclaration/app/com.garden.taskgarden/-task/completed.html
 $dokka.location:com.garden.taskgarden/Task/description/#/PointingToDeclaration/app/com.garden.taskgarden/-task/description.html
 $dokka.location:com.garden.taskgarden/Task/iD/#/PointingToDeclaration/app/com.garden.taskgarden/-task/i-d.html
-$dokka.location:com.garden.taskgarden/Task/setCompleted/#kotlin.Boolean/PointingToDeclaration/app/com.garden.taskgarden/-task/set-completed.html
+$dokka.location:com.garden.taskgarden/Task/setCompleted/#kotlin.Int/PointingToDeclaration/app/com.garden.taskgarden/-task/set-completed.html
 $dokka.location:com.garden.taskgarden/Task/setCompletedBy/#kotlin.String?/PointingToDeclaration/app/com.garden.taskgarden/-task/set-completed-by.html
 $dokka.location:com.garden.taskgarden/Task/setDescription/#kotlin.String?/PointingToDeclaration/app/com.garden.taskgarden/-task/set-description.html
 $dokka.location:com.garden.taskgarden/Task/setID/#kotlin.Int/PointingToDeclaration/app/com.garden.taskgarden/-task/set-i-d.html
