@@ -1,12 +1,15 @@
 package com.garden.taskgarden
 
 //refactor to deal with all imports of DBInterface!
+import android.content.Context
 import android.content.Intent
 import android.os.Build
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
+import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -34,6 +37,7 @@ class MainActivity : AppCompatActivity(), RecyclerViewAdapter.OnItemClickListene
 
     // nullable type
     private lateinit var taskAdapter: RecyclerViewAdapter
+    private val currencyKey = "crncyKey"
 
     //var adapter: RecyclerViewAdapter? = null
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,6 +48,7 @@ class MainActivity : AppCompatActivity(), RecyclerViewAdapter.OnItemClickListene
         initRecyclerView()
         checkDT()
         loadData()
+        displayCurrencyValue()
     }
     /**
      * Loads list of task objects and sends it to the task adapter.
@@ -89,7 +94,7 @@ class MainActivity : AppCompatActivity(), RecyclerViewAdapter.OnItemClickListene
 
     /**
      * onItemClick is called by the clickListener when the user interacts with the delete button
-     * of a card in the RecyckerView.
+     * of a card in the RecyclerView.
      *
      * @param id the ID of the task to delete.
      * */
@@ -188,6 +193,8 @@ class MainActivity : AppCompatActivity(), RecyclerViewAdapter.OnItemClickListene
              task.setCompleted(1)
              updateTask(task, this)
              updateRecyclerView()
+             // call method to update currency value
+             incCurrencyValue()
 
          } catch (e: Exception) {
              Log.d(debugTag, "Got $e while trying to complete task in Main Activity!")
@@ -239,6 +246,31 @@ class MainActivity : AppCompatActivity(), RecyclerViewAdapter.OnItemClickListene
             }
         }
 
+    }
+
+    /**
+     * incCurrencyValue update the currency value in SharedPreferences.
+     */
+    private fun incCurrencyValue() {
+        val currencyPreferences = this.getSharedPreferences("currencyValuePreference", Context.MODE_PRIVATE)
+        var currencyValue = currencyPreferences.getInt(currencyKey, 0)
+
+        with (currencyPreferences.edit()) {
+            putInt(currencyKey, currencyValue + 5)
+            apply()
+        }
+
+        displayCurrencyValue()
+    }
+
+    /**
+     * displayCurrencyValue get the currency value and update the currency label to this value.
+     */
+    private fun displayCurrencyValue() {
+        val currencyPreferences = this.getSharedPreferences("currencyValuePreference", Context.MODE_PRIVATE)
+        var currencyValue = currencyPreferences.getInt(currencyKey, 0)
+        val currencyLabel = findViewById<TextView>(R.id.labelCurrency)
+        currencyLabel.text = currencyValue.toString()
     }
 
 
