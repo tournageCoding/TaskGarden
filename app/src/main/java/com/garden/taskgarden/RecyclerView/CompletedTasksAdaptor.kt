@@ -1,5 +1,6 @@
 package com.garden.taskgarden.RecyclerView
 
+import android.graphics.Color
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -56,7 +57,13 @@ class CompletedTasksAdaptor(private val completedList: List<Task>) :
         fun bind(task: Task){
             title.text = task.title
             description.text = task.description
-            taskStatus.text = task.completed.toString()
+            if(task.completed == 1){
+                taskStatus.text = "Task Completed!"
+                taskStatus.setTextColor(Color.BLUE)
+            } else {
+                taskStatus.text = "Task Failed!"
+                taskStatus.setTextColor(Color.RED)
+            }
             id = task.iD;
             Log.d("RecyclerViewAdapter","BIND TASK! $id")
 
