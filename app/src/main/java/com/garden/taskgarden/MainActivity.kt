@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.content.SharedPreferences
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -13,6 +14,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.garden.taskgarden.DBInterface.findTask
 import com.garden.taskgarden.DBInterface.removeTask
 import com.garden.taskgarden.DBInterface.updateTask
@@ -49,6 +51,7 @@ class MainActivity : AppCompatActivity(), RecyclerViewAdapter.OnItemClickListene
         checkDT()
         loadData()
         displayCurrencyValue()
+        levelUp()
     }
     /**
      * Loads list of task objects and sends it to the task adapter.
@@ -227,8 +230,6 @@ class MainActivity : AppCompatActivity(), RecyclerViewAdapter.OnItemClickListene
     }
 
     private fun checkDT(){
-        println("///////////////////////////////////////////////////////////////////////////")
-
         val uncompletedTasks = loadTasks()
         val dateNow = Calendar.getInstance().time
 
@@ -253,7 +254,7 @@ class MainActivity : AppCompatActivity(), RecyclerViewAdapter.OnItemClickListene
      */
     private fun incCurrencyValue() {
         val currencyPreferences = this.getSharedPreferences("currencyValuePreference", Context.MODE_PRIVATE)
-        var currencyValue = currencyPreferences.getInt(currencyKey, 0)
+        val currencyValue = currencyPreferences.getInt(currencyKey, 0)
 
         with (currencyPreferences.edit()) {
             putInt(currencyKey, currencyValue + 5)
@@ -268,9 +269,25 @@ class MainActivity : AppCompatActivity(), RecyclerViewAdapter.OnItemClickListene
      */
     private fun displayCurrencyValue() {
         val currencyPreferences = this.getSharedPreferences("currencyValuePreference", Context.MODE_PRIVATE)
-        var currencyValue = currencyPreferences.getInt(currencyKey, 0)
+        val currencyValue = currencyPreferences.getInt(currencyKey, 0)
         val currencyLabel = findViewById<TextView>(R.id.labelCurrency)
         currencyLabel.text = currencyValue.toString()
+    }
+
+    private fun levelUp() {
+        println("///////////////////////////////////////////////////////////////////////////")
+        val currencyPreferences = this.getSharedPreferences("currencyValuePreference", Context.MODE_PRIVATE)
+        val currencyValue = currencyPreferences.getInt(currencyKey, 0)
+        val backColour = findViewById<RecyclerView>(R.id.taskList)
+        if(currencyValue > 25){
+            backColour.setBackgroundColor(Color.rgb(205, 127, 50)) //Bronze
+        }
+        if(currencyValue > 50){
+            backColour.setBackgroundColor(Color.rgb(192, 192, 192)) //Silver
+        }
+        if(currencyValue > 75){
+            backColour.setBackgroundColor(Color.rgb(165, 124, 0)) //Gold
+        }
     }
 
 
