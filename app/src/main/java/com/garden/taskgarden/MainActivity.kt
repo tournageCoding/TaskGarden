@@ -200,7 +200,6 @@ class MainActivity : AppCompatActivity(), RecyclerViewAdapter.OnItemClickListene
              updateRecyclerView()
              // call method to update currency value
              incCurrencyValue()
-             levelUp()
 
          } catch (e: Exception) {
              Log.d(debugTag, "Got $e while trying to complete task in Main Activity!")
@@ -265,6 +264,7 @@ class MainActivity : AppCompatActivity(), RecyclerViewAdapter.OnItemClickListene
         }
 
         displayCurrencyValue()
+        levelUp()
     }
 
     /**
