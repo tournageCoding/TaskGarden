@@ -200,7 +200,6 @@ class MainActivity : AppCompatActivity(), RecyclerViewAdapter.OnItemClickListene
              updateRecyclerView()
              // call method to update currency value
              incCurrencyValue()
-             levelUp()
 
          } catch (e: Exception) {
              Log.d(debugTag, "Got $e while trying to complete task in Main Activity!")
@@ -255,7 +254,23 @@ class MainActivity : AppCompatActivity(), RecyclerViewAdapter.OnItemClickListene
     /**
      * incCurrencyValue update the currency value in SharedPreferences.
      */
-    private fun incCurrencyValue() {
+    fun incCurrencyValue() {
+        val currencyPreferences = this.getSharedPreferences("currencyValuePreference", Context.MODE_PRIVATE)
+        val currencyValue = currencyPreferences.getInt(currencyKey, 0)
+
+        with (currencyPreferences.edit()) {
+            putInt(currencyKey, currencyValue + 5)
+            apply()
+        }
+
+        displayCurrencyValue()
+        levelUp()
+    }
+
+    /**
+     * incCurrencyValue update the currency value in SharedPreferences.
+     */
+    fun onClickIncCurrencyValue(view: View?) {
         val currencyPreferences = this.getSharedPreferences("currencyValuePreference", Context.MODE_PRIVATE)
         val currencyValue = currencyPreferences.getInt(currencyKey, 0)
 

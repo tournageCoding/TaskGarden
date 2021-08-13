@@ -42,7 +42,7 @@
             android:id="@+id/btnIncreaseCurrency"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:onClick="openCompletedTasks"
+            android:onClick="onClickIncCurrencyValue"
             android:text="Increase\nScore" />
 
         <Button
