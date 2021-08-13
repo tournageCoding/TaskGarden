@@ -282,14 +282,15 @@ class MainActivity : AppCompatActivity(), RecyclerViewAdapter.OnItemClickListene
         val currencyPreferences = this.getSharedPreferences("currencyValuePreference", Context.MODE_PRIVATE)
         val currencyValue = currencyPreferences.getInt(currencyKey, 0)
         val backColour = findViewById<RecyclerView>(R.id.taskList)
+
         //val primary = findViewById<DONT KNOW WHAT GOES HERE>(R.id.colorPrimary)
-        if(currencyValue > 25){
+        if(currencyValue >= 25){
             backColour.setBackgroundColor(Color.rgb(205, 127, 50)) //Bronze
         }
-        if(currencyValue > 50){
+        if(currencyValue >= 50){
             backColour.setBackgroundColor(Color.rgb(192, 192, 192)) //Silver
         }
-        if(currencyValue > 75){
+        if(currencyValue >= 75){
             backColour.setBackgroundColor(Color.rgb(165, 124, 0)) //Gold
         }
     }
