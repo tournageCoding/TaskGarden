@@ -111,17 +111,6 @@ $dokka.location:com.garden.taskgarden/SettingsTalker/getStringEntry/#kotlin.Stri
 $dokka.location:com.garden.taskgarden/SettingsTalker/removeEntry/#kotlin.String?/PointingToDeclaration/app/com.garden.taskgarden/-settings-talker/remove-entry.html
 $dokka.location:com.garden.taskgarden/SettingsTalker/updateEntry/#kotlin.String?#kotlin.Int/PointingToDeclaration/app/com.garden.taskgarden/-settings-talker/update-entry.html
 $dokka.location:com.garden.taskgarden/SettingsTalker/updateEntry/#kotlin.String?#kotlin.String?/PointingToDeclaration/app/com.garden.taskgarden/-settings-talker/update-entry.html
-$dokka.location:com.garden.taskgarden/ShopItem///PointingToDeclaration/app/com.garden.taskgarden/-shop-item/index.html
-$dokka.location:com.garden.taskgarden/ShopItem/ShopItem/#kotlin.String#kotlin.String#kotlin.Int#kotlin.String/PointingToDeclaration/app/com.garden.taskgarden/-shop-item/-shop-item.html
-$dokka.location:com.garden.taskgarden/ShopItem/ShopItem/#kotlin.String#kotlin.String#kotlin.Int/PointingToDeclaration/app/com.garden.taskgarden/-shop-item/-shop-item.html
-$dokka.location:com.garden.taskgarden/ShopItem/description/#/PointingToDeclaration/app/com.garden.taskgarden/-shop-item/description.html
-$dokka.location:com.garden.taskgarden/ShopItem/name/#/PointingToDeclaration/app/com.garden.taskgarden/-shop-item/name.html
-$dokka.location:com.garden.taskgarden/ShopItem/price/#/PointingToDeclaration/app/com.garden.taskgarden/-shop-item/price.html
-$dokka.location:com.garden.taskgarden/ShopItem/resourceName/#/PointingToDeclaration/app/com.garden.taskgarden/-shop-item/resource-name.html
-$dokka.location:com.garden.taskgarden/ShopItem/updateDescription/#kotlin.String/PointingToDeclaration/app/com.garden.taskgarden/-shop-item/update-description.html
-$dokka.location:com.garden.taskgarden/ShopItem/updateName/#kotlin.String/PointingToDeclaration/app/com.garden.taskgarden/-shop-item/update-name.html
-$dokka.location:com.garden.taskgarden/ShopItem/updatePrice/#kotlin.Int/PointingToDeclaration/app/com.garden.taskgarden/-shop-item/update-price.html
-$dokka.location:com.garden.taskgarden/ShopItem/updateResourceName/#kotlin.String/PointingToDeclaration/app/com.garden.taskgarden/-shop-item/update-resource-name.html
 $dokka.location:com.garden.taskgarden/Task///PointingToDeclaration/app/com.garden.taskgarden/-task/index.html
 $dokka.location:com.garden.taskgarden/Task/Task/#/PointingToDeclaration/app/com.garden.taskgarden/-task/-task.html
 $dokka.location:com.garden.taskgarden/Task/Task/#kotlin.Int#kotlin.String?#kotlin.String?#kotlin.Int#kotlin.String?/PointingToDeclaration/app/com.garden.taskgarden/-task/-task.html
