@@ -9,9 +9,10 @@ class TaskClassTest : TestCase() {
     private var title = "Title"
     private var desc = "Description"
     private var timeToCompleteBy = "TimeToCompleteBy"
+    private var completed = 0
     private val test = "test"
 
-    private val testTask = Task(id, title, desc, timeToCompleteBy)
+    private val testTask = Task(id, title, desc, completed, timeToCompleteBy)
 
     fun testGetID() {
         Assert.assertEquals(testTask.iD, id)
@@ -26,7 +27,11 @@ class TaskClassTest : TestCase() {
     }
 
     fun testGetCompleted() {
-        Assert.assertEquals(testTask.completed, false)
+        Assert.assertEquals(testTask.completed, 0)
+    }
+
+    fun testGetTimeToComplete() {
+        Assert.assertEquals(testTask.timeToCompletedBy, timeToCompleteBy)
     }
 
     fun testSetID() {
@@ -48,7 +53,13 @@ class TaskClassTest : TestCase() {
     }
 
     fun testSetCompleted() {
-        testTask.setCompleted(true)
-        Assert.assertEquals(testTask.completed, true)
+        testTask.setCompleted(1)
+        Assert.assertEquals(testTask.completed, 1)
+    }
+
+    fun testSetCompletedBy() {
+        timeToCompleteBy = "03/08/2021 12:47"
+        testTask.setCompletedBy(timeToCompleteBy)
+        Assert.assertEquals(testTask.timeToCompletedBy, timeToCompleteBy)
     }
 }
