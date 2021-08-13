@@ -6,6 +6,7 @@ import android.content.Intent
 import android.os.Build
 import android.content.SharedPreferences
 import android.graphics.Color
+import android.graphics.Paint
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -15,6 +16,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.basgeekball.awesomevalidation.validators.ColorationValidator
 import com.garden.taskgarden.DBInterface.findTask
 import com.garden.taskgarden.DBInterface.removeTask
 import com.garden.taskgarden.DBInterface.updateTask
@@ -279,6 +281,7 @@ class MainActivity : AppCompatActivity(), RecyclerViewAdapter.OnItemClickListene
         val currencyPreferences = this.getSharedPreferences("currencyValuePreference", Context.MODE_PRIVATE)
         val currencyValue = currencyPreferences.getInt(currencyKey, 0)
         val backColour = findViewById<RecyclerView>(R.id.taskList)
+        //val primary = findViewById<DONT KNOW WHAT GOES HERE>(R.id.colorPrimary)
         if(currencyValue > 25){
             backColour.setBackgroundColor(Color.rgb(205, 127, 50)) //Bronze
         }
