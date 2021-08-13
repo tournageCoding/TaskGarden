@@ -273,7 +273,7 @@ class MainActivity : AppCompatActivity(), RecyclerViewAdapter.OnItemClickListene
         val currencyPreferences = this.getSharedPreferences("currencyValuePreference", Context.MODE_PRIVATE)
         val currencyValue = currencyPreferences.getInt(currencyKey, 0)
         val currencyLabel = findViewById<TextView>(R.id.labelCurrency)
-        currencyLabel.text = currencyValue.toString()
+        currencyLabel.text = "Score:\n $currencyValue"
     }
 
     private fun levelUp() {
