@@ -27,20 +27,20 @@
 
         <Button
             android:id="@+id/btnAddNewTask"
-            android:layout_width="179dp"
+            android:layout_width="150dp"
             android:layout_height="match_parent"
             android:onClick="openForm"
             android:text="add new task" />
 
-        <TextView
+        <Button
             android:id="@+id/labelCurrency"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Currency: 453"/>
+            android:layout_height="match_parent"
+            android:text="Currency: 453" />
 
         <Button
             android:id="@+id/btnShowCompletedTasks"
-            android:layout_width="231dp"
+            android:layout_width="150dp"
             android:layout_height="match_parent"
             android:onClick="openCompletedTasks"
             android:text="task history" />
