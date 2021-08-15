@@ -31,7 +31,9 @@ class DBHandler(context: Context?, name: String?, factory: CursorFactory?, versi
         db.execSQL(CREATE_TABLE)
     }
 
-    override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {}
+    override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
+        //Do we need this func?
+    }
 
     /**
      * loadUncompletedHandler gets all tasks from the database that have their completed flag set to 0,

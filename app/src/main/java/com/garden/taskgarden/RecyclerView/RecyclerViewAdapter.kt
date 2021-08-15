@@ -119,6 +119,10 @@ class RecyclerViewAdapter(private val listener: OnItemClickListener) : RecyclerV
      */
     interface OnItemClickListener {
         fun onItemClick(id: Int)
+
+        /**
+         * But this is documented in MainActivity....
+         */
         fun onCompletedClick(id: Int)
         fun onEditClick(id: Int)
     }

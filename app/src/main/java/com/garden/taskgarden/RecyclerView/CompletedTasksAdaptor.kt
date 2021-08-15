@@ -28,7 +28,10 @@ class CompletedTasksAdaptor(private val completedList: List<Task>) :
     }
 
     /**
-     * Function for binding tasks with there task information
+     * Function for binding tasks with there task information.
+     *
+     * @param holder The view holder of completed tasks.
+     * @param position The position of the task in the view holder.
      * */
     override fun onBindViewHolder(holder: CompletedTasksViewHolder, position: Int) {
 
@@ -54,6 +57,9 @@ class CompletedTasksAdaptor(private val completedList: List<Task>) :
         val taskStatus = itemView.completedStatus
         var id = 0;
 
+        /**
+         * Bind tasks to the recycler view
+         */
         fun bind(task: Task){
             title.text = task.title
             description.text = task.description
