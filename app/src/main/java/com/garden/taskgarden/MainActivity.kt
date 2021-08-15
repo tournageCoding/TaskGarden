@@ -55,15 +55,16 @@ class MainActivity : AppCompatActivity(), RecyclerViewAdapter.OnItemClickListene
         displayCurrencyValue()
         levelUp()
     }
-    /**
+
+    /*
      * Loads list of task objects and sends it to the task adapter.
-     * */
+     */
     private fun loadData(){
         val data = loadTasks()
         taskAdapter.submitList(data)
     }
 
-    /**
+    /*
      * Function that initialises the RecyclerView
      */
     private fun initRecyclerView(){
