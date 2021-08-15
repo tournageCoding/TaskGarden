@@ -47,7 +47,7 @@ class TaskFormActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener
         pickDate()
     }
 
-    /**
+    /*
      * function for getting the date/time from the user and setting the date and time variables
      * in this class.
      */
@@ -63,7 +63,7 @@ class TaskFormActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener
         minute = cal.get(Calendar.MINUTE)
     }
 
-    /**
+    /*
      * function called on creation of this class, for allowing the user to set a date/time with
      * their task.
      */

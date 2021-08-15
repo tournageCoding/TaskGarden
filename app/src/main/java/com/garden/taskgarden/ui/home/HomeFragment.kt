@@ -9,6 +9,9 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.garden.taskgarden.R
 
+/**
+ * A class to the Home view fragment.
+ */
 class HomeFragment : Fragment() {
     private var homeViewModel: HomeViewModel? = null
     override fun onCreateView(inflater: LayoutInflater,

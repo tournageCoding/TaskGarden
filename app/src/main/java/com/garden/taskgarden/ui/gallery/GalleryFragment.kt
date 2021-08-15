@@ -9,6 +9,10 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.garden.taskgarden.R
 
+/**
+ * A class to represent a fragment of the gallery view.
+ */
+
 class GalleryFragment : Fragment() {
     private var galleryViewModel: GalleryViewModel? = null
     override fun onCreateView(inflater: LayoutInflater,

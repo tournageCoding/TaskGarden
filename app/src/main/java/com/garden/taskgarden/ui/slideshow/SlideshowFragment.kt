@@ -9,6 +9,9 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.garden.taskgarden.R
 
+/**
+ * Class to create the slideshow fragment root.
+ */
 class SlideshowFragment : Fragment() {
     private var slideshowViewModel: SlideshowViewModel? = null
     override fun onCreateView(inflater: LayoutInflater,

@@ -25,7 +25,7 @@ class CompletedTasksActivity : AppCompatActivity() {
         initRecyclerView()
     }
 
-    /**
+    /*
      * Function that initialises the RecyclerView
      */
     private fun initRecyclerView(){
@@ -40,10 +40,10 @@ class CompletedTasksActivity : AppCompatActivity() {
 
     }
 
-    /**
+    /*
      * loadCompletedTasks talks to the database to get all tasks that are marked as completed.
      * @return ArrayList of completed Task objects.
-     * */
+     */
     private fun loadCompletedTasks() : ArrayList<Task>{
         try {
             val dbHandler = DBHandler(this, null, null, 1)

@@ -42,6 +42,7 @@ class MainActivity : AppCompatActivity(), RecyclerViewAdapter.OnItemClickListene
     // nullable type
     private lateinit var taskAdapter: RecyclerViewAdapter
     private val currencyKey = "crncyKey"
+    private val currencyValuePreferenceName = "currencyValuePreference"
 
     //var adapter: RecyclerViewAdapter? = null
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -108,20 +109,20 @@ class MainActivity : AppCompatActivity(), RecyclerViewAdapter.OnItemClickListene
         deleteTask(id)
     }
 
-    /**
+    /*
      * Updates the RecyclerView with any new data.
      * Call whenever you add tasks to the database and want to see them in the RecyclerView.
-     * */
+     */
     private fun updateRecyclerView(){
         loadData()
         taskAdapter.notifyDataSetChanged()
     }
 
-    /**
+    /*
      * loadTasks gets all the uncompleted tasks from the database and adds them into an ArrayList.
      *
      * @return ArrayList of all uncompleted task objects.
-     * */
+     */
     private fun loadTasks() :ArrayList<Task>{
         try {
             val dbHandler = DBHandler(this, null, null, 1)
@@ -132,11 +133,11 @@ class MainActivity : AppCompatActivity(), RecyclerViewAdapter.OnItemClickListene
         return ArrayList()
     }
 
-    /**
+    /*
      * loadTasks gets all the uncompleted tasks from the database and adds them into an ArrayList.
      *
      * @return ArrayList of all uncompleted task objects.
-     * */
+     */
     private fun loadCompletedTasks() :ArrayList<Task>{
         try {
             val dbHandler = DBHandler(this, null, null, 1)
@@ -148,10 +149,10 @@ class MainActivity : AppCompatActivity(), RecyclerViewAdapter.OnItemClickListene
     }
 
 
-    /**
+    /*
      * Called from each task to delete itself.
      * @param id the of the task to delete.
-     * */
+     */
     private fun deleteTask(id: Int) {
         try {
             //val id: Int = Integer.parseInt(taskId!!.text.toString())
@@ -187,11 +188,11 @@ class MainActivity : AppCompatActivity(), RecyclerViewAdapter.OnItemClickListene
         startActivity(intent)
     }
 
-    /**
+    /*
      * completedTask finds the relevant task from the database, takes it out, marks it as completed,
      * and then adds it back into the database.
      * @param id the ID of the task to be marked as completed.
-     * */
+     */
     private fun completedTask(id: Int) {
          var task = Task()
          try {
@@ -206,10 +207,10 @@ class MainActivity : AppCompatActivity(), RecyclerViewAdapter.OnItemClickListene
              Log.d(debugTag, "Got $e while trying to complete task in Main Activity!")
          }
     }
-    /**
+    /*
      * editTask find the given task in the database and changes it to reflect any updates.
      * @param id the ID of the task to edit.
-     * */
+     */
     private fun editTask(id: Int){
         var task = findTask(id, this)
 
@@ -256,7 +257,7 @@ class MainActivity : AppCompatActivity(), RecyclerViewAdapter.OnItemClickListene
      * incCurrencyValue update the currency value in SharedPreferences.
      */
     fun incCurrencyValue() {
-        val currencyPreferences = this.getSharedPreferences("currencyValuePreference", Context.MODE_PRIVATE)
+        val currencyPreferences = this.getSharedPreferences(currencyValuePreferenceName, Context.MODE_PRIVATE)
         val currencyValue = currencyPreferences.getInt(currencyKey, 0)
 
         with (currencyPreferences.edit()) {
@@ -272,7 +273,7 @@ class MainActivity : AppCompatActivity(), RecyclerViewAdapter.OnItemClickListene
      * incCurrencyValue update the currency value in SharedPreferences.
      */
     fun onClickIncCurrencyValue(view: View?) {
-        val currencyPreferences = this.getSharedPreferences("currencyValuePreference", Context.MODE_PRIVATE)
+        val currencyPreferences = this.getSharedPreferences(currencyValuePreferenceName, Context.MODE_PRIVATE)
         val currencyValue = currencyPreferences.getInt(currencyKey, 0)
 
         with (currencyPreferences.edit()) {
@@ -284,11 +285,11 @@ class MainActivity : AppCompatActivity(), RecyclerViewAdapter.OnItemClickListene
         levelUp()
     }
 
-    /**
+    /*
      * displayCurrencyValue get the currency value and update the currency label to this value.
      */
     private fun displayCurrencyValue() {
-        val currencyPreferences = this.getSharedPreferences("currencyValuePreference", Context.MODE_PRIVATE)
+        val currencyPreferences = this.getSharedPreferences(currencyValuePreferenceName, Context.MODE_PRIVATE)
         val currencyValue = currencyPreferences.getInt(currencyKey, 0)
         val currencyLabel = findViewById<TextView>(R.id.labelCurrency)
         val currencyLevel = currencyValue / 100
@@ -302,7 +303,7 @@ class MainActivity : AppCompatActivity(), RecyclerViewAdapter.OnItemClickListene
 
     private fun levelUp() {
         // println("///////////////////////////////////////////////////////////////////////////")
-        val currencyPreferences = this.getSharedPreferences("currencyValuePreference", Context.MODE_PRIVATE)
+        val currencyPreferences = this.getSharedPreferences(currencyValuePreferenceName, Context.MODE_PRIVATE)
         val currencyValue = currencyPreferences.getInt(currencyKey, 0)
         val currencyLevel = currencyValue % 100
         val backColour = findViewById<RecyclerView>(R.id.taskList)

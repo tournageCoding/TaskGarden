@@ -4,6 +4,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
+/**
+ * The slideshow view model.
+ */
 class SlideshowViewModel : ViewModel() {
     private val mText: MutableLiveData<String?> = MutableLiveData()
     val text: LiveData<String?>

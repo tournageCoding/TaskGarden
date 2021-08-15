@@ -65,7 +65,9 @@ class Task {
      * Blank constructor for Task.
      * Instantiates all values to their defaults.
      */
-    constructor() {} //Should probably remove..? doesn't really matter, just for simple testing...
+    constructor() {
+        // should we remove this?
+    }
 
     /**
      * updateID updates the id of the object.

@@ -118,12 +118,18 @@ class RecyclerViewAdapter(private val listener: OnItemClickListener) : RecyclerV
      * Interface where all classes that implement this interface have to have these methods.
      */
     interface OnItemClickListener {
-        fun onItemClick(id: Int)
-
         /**
          * But this is documented in MainActivity....
          */
+        fun onItemClick(id: Int)
+
+        /**
+         * Why does Codacy.
+         */
         fun onCompletedClick(id: Int)
+        /**
+         * Want us to comment this method calls???
+         */
         fun onEditClick(id: Int)
     }
 
