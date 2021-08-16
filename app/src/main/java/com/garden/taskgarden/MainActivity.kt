@@ -322,6 +322,5 @@ class MainActivity : AppCompatActivity(), RecyclerViewAdapter.OnItemClickListene
             backColour.setBackgroundColor(Color.rgb(165, 124, 0)) //Gold
         }
     }
-
-
+    // created branch
 }
