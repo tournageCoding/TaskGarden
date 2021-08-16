@@ -269,22 +269,6 @@ class MainActivity : AppCompatActivity(), RecyclerViewAdapter.OnItemClickListene
         levelUp()
     }
 
-    /**
-     * incCurrencyValue update the currency value in SharedPreferences.
-     */
-    fun onClickIncCurrencyValue(view: View?) {
-        val currencyPreferences = this.getSharedPreferences(currencyValuePreferenceName, Context.MODE_PRIVATE)
-        val currencyValue = currencyPreferences.getInt(currencyKey, 0)
-
-        with (currencyPreferences.edit()) {
-            putInt(currencyKey, currencyValue + 5)
-            apply()
-        }
-
-        displayCurrencyValue()
-        levelUp()
-    }
-
     /*
      * displayCurrencyValue get the currency value and update the currency label to this value.
      */
