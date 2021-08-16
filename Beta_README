@@ -7,3 +7,5 @@ Updates from Alpha:
     - Pop-up added for incorrect time/dates
   3. Task history
     - Can now see if a task is completed/failed in the task history screen
+  4. Tests added
+    - Started doing unit/instrumented tests
