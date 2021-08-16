@@ -1,0 +1,99 @@
+// POTENTIAL CODE FOR TESTING THE SETTINGSTALKER
+
+// NEEDS ADDED TO  ROOT BUILD.GRADLE AT END OF REPOSITORIES
+allprojects {
+    repositories {
+        ...
+        maven { url 'https://jitpack.io' }
+    }
+}
+
+// NEEDS THIS ADDED TO DEPENDENCY
+dependencies {
+    testImplementation 'com.github.IvanShafran:shared-preferences-mock:1.0'
+}
+
+// THIS IS THE MAIN STUFF FOR THE TESTS, BETTER TO SET THIS UP ON ANDROID STUDIO
+public class settingsTalkerTest(){
+
+    private final SPMockBuilder spMockBuilder = new SPMockBuilder();
+	  private SettingsTalker settingsTalkerTest;
+
+/**before this test class, make a fake 'context' and a new SettingsTalker that uses
+*this testContext.
+*/
+@Before
+public void setUp(){
+testContext = spMockBuilder.createContext()
+settingsTalkerTest = new SettingsTalker(testContext)
+
+// if this preference does not exist will return "error"
+@Test
+public void addEntryStringTest(){
+settingsTalkerTest.addEntry("KEY1","teststring")
+var result = settingsTalkerTest.preferences.getString("KEY1", "error")
+Assert.assertEquals(result,"teststring")
+}
+
+//if no int found will return 0.
+@Test
+public void addEntryIntTest(){
+settingsTalkerTest.addEntry("KEY2",2)
+var result = settingsTalkerTest.preferences.getInt("KEY2", 0)
+Assert.assertEquals(result, 2)
+}
+
+/**
+* Tests if can update string associated with a key.
+*/
+@Test
+public void updateEntryStringTests(){
+settingsTalkerTest.editor.putString("KEY3","initial")
+settingsTalkerTest.updateEntry("KEY3","updated")
+var result = settingsTalkerTest.preferences.getString("KEY3")
+Assert.assertEquals(result, "updated")
+}
+
+/**
+* Tests if can update int associated with a key
+*/
+@Test
+public void updateEntryIntTests(){
+settingsTalkerTest.editor.putInt("KEY4",1) /*?
+settingsTalkerTest.updateEntry("KEY4",2)
+var result = settingsTalkerTest.preferences.getInt("KEY4")
+Assert.assertEquals(result, 2)
+}
+
+/**
+* Tests if can get string when put directly into sharedpreferences
+*/
+@Test
+public void getEntryStringTests(){
+settingsTalkerTest.editor.putString("KEY5","initial")
+var result = settingsTalkerTest.getStringEntry("KEY5")
+Assert.assertEquals(result, "initial")
+}
+
+@Test
+public void getEntryIntTests(){
+settingsTalkerTest.editor.putString("KEY6",1)
+var result = settingsTalkerTest.getIntEntry("KEY6",0)
+Assert.assertEquals(result, 1)
+}
+
+@Test
+public void removeEntryStringTest(){
+settingsTalkerTest.editor.putString("KEY7","toremove")
+settingsTalkerTest.removeEntry("KEY7")
+Assert.assertFalse(settingsTalkerTest.contains("KEY7")
+}
+
+// THIS DOESNT REALLY CHECK THAT IT CLEARS ALL BUT. TOUGH. 
+@Test
+public void clearAllTest(){
+settingsTalkerTest.editor.putString("KEY8","toclear")
+settingsTalkerTest.clearAll(True)
+Assert.assertThat(settingsTalkerTest.doesNotContain("KEY8")
+}
+}
