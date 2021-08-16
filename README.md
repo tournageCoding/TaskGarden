@@ -13,4 +13,5 @@ Note: Targeting JVM Version 1.8 and Kotlin compiler version 1.5
 
 ## Analysis Reports
 [Codacy](https://app.codacy.com/gh/tournageCoding/TaskGarden)
+
 [Codecov](https://app.codecov.io/gh/tournageCoding/TaskGarden)
