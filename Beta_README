@@ -1,7 +1,8 @@
 Updates from Alpha:
   1. Reward system added
     - Point system added for completing tasks
-    - Screen changes colour with rank
+    - Point tracker added
+    - Screen changes colour with rank (bronze, silver, gold), more ranks to be added in the future
   2. Time/Date system
     - Once the time/date is set, if the task is not completed within that time/date, the task is failed and you get no points
     - Pop-up added for incorrect time/dates
@@ -9,3 +10,5 @@ Updates from Alpha:
     - Can now see if a task is completed/failed in the task history screen
   4. Tests added
     - Started doing unit/instrumented tests
+    - Setup codecov
+    - Setup codacy
