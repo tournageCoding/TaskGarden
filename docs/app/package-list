@@ -91,7 +91,6 @@ $dokka.location:com.garden.taskgarden/MainActivity.Companion/debugTag/#/Pointing
 $dokka.location:com.garden.taskgarden/MainActivity///PointingToDeclaration/app/com.garden.taskgarden/-main-activity/index.html
 $dokka.location:com.garden.taskgarden/MainActivity/MainActivity/#/PointingToDeclaration/app/com.garden.taskgarden/-main-activity/-main-activity.html
 $dokka.location:com.garden.taskgarden/MainActivity/incCurrencyValue/#/PointingToDeclaration/app/com.garden.taskgarden/-main-activity/inc-currency-value.html
-$dokka.location:com.garden.taskgarden/MainActivity/onClickIncCurrencyValue/#android.view.View?/PointingToDeclaration/app/com.garden.taskgarden/-main-activity/on-click-inc-currency-value.html
 $dokka.location:com.garden.taskgarden/MainActivity/onCompletedClick/#kotlin.Int/PointingToDeclaration/app/com.garden.taskgarden/-main-activity/on-completed-click.html
 $dokka.location:com.garden.taskgarden/MainActivity/onEditClick/#kotlin.Int/PointingToDeclaration/app/com.garden.taskgarden/-main-activity/on-edit-click.html
 $dokka.location:com.garden.taskgarden/MainActivity/onItemClick/#kotlin.Int/PointingToDeclaration/app/com.garden.taskgarden/-main-activity/on-item-click.html
