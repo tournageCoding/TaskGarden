@@ -15,3 +15,10 @@ Note: Targeting JVM Version 1.8 and Kotlin compiler version 1.5
 [Codacy](https://app.codacy.com/gh/tournageCoding/TaskGarden)
 
 [Codecov](https://app.codecov.io/gh/tournageCoding/TaskGarden)
+
+## Ranks and Levels
+0-24: Grey
+25-49: Bronze
+50-74: Silver
+75-99: Gold
+Once you complete Gold, you will level up, keep your score and be set back to grey!
